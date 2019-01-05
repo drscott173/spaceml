@@ -2,12 +2,11 @@
 
 We are building a plaform for citizen science in space called "SpaceML."
 
-SpaceML originated with James Parr of NASA's Frontier Development Lab,
-after we worked together in the summer of 2018:
-
 [![NASA FDL and Google](https://img.youtube.com/vi/Tu7Ja8eUqgU/0.jpg)](https://www.youtube.com/watch?v=Tu7Ja8eUqgU)
 
-That summer tested the use of machine learning and cloud
+SpaceML originated with James Parr of NASA's Frontier Development Lab,
+after we worked together in the summer of 2018 (described in the video
+above). We tested the use of machine learning and cloud
 to find exoplanets, predict solar flares, and model atmospheres
 that could be produced by extraterrestial life.   
 
