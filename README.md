@@ -1,4 +1,4 @@
-# spaceml
+# SpaceML
 
 We are building a plaform for citizen science in space called "SpaceML."
 
@@ -29,5 +29,8 @@ with other systems.
 We hope to make this platform free to use, much
 like we provide Colab.  Deeper explorations of data can start 
 individual projects by replicating the SpaceML
-stack on private clusters.
+stack on private clusters.  We also hope you find this stack
+useful in your own data science and AI endeavours.
+
+__@scottpenberthy, January 2019__
 
