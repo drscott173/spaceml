@@ -1,6 +1,7 @@
 # SpaceML
 
-We are building a plaform for citizen science in space called "SpaceML."
+We are building a platform for 
+[citizen science](https://daily.zooniverse.org/2014/09/16/citizen-science-in-dictionary/) in space called "SpaceML."
 
 [![NASA FDL and Google](https://img.youtube.com/vi/Tu7Ja8eUqgU/0.jpg)](https://www.youtube.com/watch?v=Tu7Ja8eUqgU)
 
@@ -19,22 +20,30 @@ use satellite data from the upper atmosphere to detect shifts in earth's
 electromagnetic signature, which could be a sign of pending earthquakes
 as magma shifts beneath the surface.
 
-Our initial version of SpaceML is a Jupyter Lab environment in the cloud, 
+Our initial version of SpaceML is a Jupyter Lab environment
 powered by a GPU-accelerated Kubernetes cluster.  Data are hosted
-and shared on GCS and BigQuery.  Data are manipulated, explored and visualized 
+and shared on the public cloud (GCS and GBQ). 
+Data are manipulated, explored and visualized 
 within a Python environment of notebooks, terminal shells, and other Jupyter Lab
-plugins.
+plugins.  We're inspired by [Pangeo](https://github.com/pangeo-data), 
+a similar effort in earth science.  [Kubeflow](https://www.kubeflow.org/) 
+is a generic model for machine learning on kubernetes; 
+we borrow heavily from their designs, but believe every user needs
+their _own_ cluster.  :-)
 
-The stack is entirely open source. Dask expands the in-memory models popularized
+Our stack is entirely open source.
+[Dask](https://github.com/dask/distributed)
+expands in-memory models popularized
 by numpy and pandas to handle large data sets that exceed limits of a single
 machine (e.g. arrays with 100M rows).  Predictive models are built and trained using
-tensorflow, scikit-learn, and pytorch.  Hypterparamter optimization and distributed
+tensorflow, scikit-learn, and pytorch.  Hyperparamter optimization and distributed
 training are accelerated by Dask. 
-Models are deployed into RESTful endpoints with seldon for integration
+Models are deployed into RESTful endpoints with 
+[seldon](https://github.com/SeldonIO/seldon-core) for integration
 with other systems.
 
-We plan to make this platform free to use, much
-like Google Colaboratory.  Deeper explorations of data can start 
+We are planning on a freely hosted version of SpaceML much
+like we do with Google Colaboratory today.  Deeper explorations of data can start 
 individual projects by replicating the SpaceML
 stack on private clusters.  
 
