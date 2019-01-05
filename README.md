@@ -32,5 +32,5 @@ individual projects by replicating the SpaceML
 stack on private clusters.  We also hope you find this stack
 useful in your own data science and AI endeavours.
 
-__@scottpenberthy, January 2019__
+_@scottpenberthy, January 2019_
 
