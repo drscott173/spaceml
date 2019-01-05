@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dpod-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+  - hosts:
+    - dask.scott.ai
+    secretName: dask-cert
+  rules:
+  - host: dask.scott.ai
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: dpod
+          servicePort: 8888
+      - path: /info
+        backend:
+          serviceName: dpod-info
+          servicePort: 8787
+      - path: /scheduler
+        backend:
+          serviceName: dpod-scheduler
+          servicePort: 8788
+      - path: /worker
+        backend:
+          serviceName: dpod-worker
+          servicePort: 8788	  
+      - path: /tb
+        backend:
+          serviceName: dpod-tensorboard
+          servicePort: 6006

@@ -1,0 +1,76 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dpod
+  labels:
+    app: daskbook
+spec:
+  serviceAccountName: daskkubernetes # in serviceaccount.yaml
+  containers:
+    - name: dask
+      image: "gcr.io/jsp-work/dask/demo"
+      ports:
+        - containerPort: 6006
+        - containerPort: 8888
+        - containerPort: 8787
+        - containerPort: 8788
+        - containerPort: 8789
+      resources:
+        limits:
+          nvidia.com/gpu: 1 # requesting 1 GPU
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dpod
+spec:
+  selector:
+    app: daskbook
+  ports:
+    - port: 8888 # Default port for image
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dpod-info
+spec:
+  selector:
+    app: daskbook
+  ports:
+    - port: 8787 # web info
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dpod-scheduler
+spec:
+  selector:
+    app: daskbook
+  ports:
+    - port: 8788 # scheduler debugger
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dpod-worker
+spec:
+  selector:
+    app: daskbook
+  ports:
+    - port: 8789 # worker debugger
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dpod-tensorboard
+spec:
+  selector:
+    app: daskbook
+  ports:
+    - port: 6006 # worker debugger

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker tag dask/demo gcr.io/jsp-work/dask/demo
+docker push gcr.io/jsp-work/dask/demo
+gsutil -m cp * gs://spenberthy/dask/

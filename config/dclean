@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# iterate through all dpod services, remove service/ prefix
+for x in $(kubectl get services -o=name | sed "s/^.\{8\}//" | grep "dpod"); do
+    kubectl delete service $x
+done
+
+# iterate through all dask workers, remove pod/ prefix
+for x in $(kubectl get pods -o=name | sed "s/^.\{4\}//" | grep "dask-worker-"); do
+  kubectl delete pod $x
+done
+
+# iterate through all dpod pods, remove pod/ prefix
+for x in $(kubectl get pods -o=name | sed "s/^.\{4\}//" | grep "dpod"); do
+  kubectl delete pod $x
+done
+
+kubectl delete ingress dpod-ingress
+
+

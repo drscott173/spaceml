@@ -1,0 +1,12 @@
+distributed:
+  dashboard:
+    link: "/info/status"
+
+  admin:
+    tick:
+      limit: 5s
+
+kubernetes:
+  worker-template-path: "/etc/skel/worker-template.yaml"
+  name: "dask-worker-{uuid}"
+

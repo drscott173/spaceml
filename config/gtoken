@@ -1,0 +1,6 @@
+#!/bin/bash
+
+kubectl logs dpod | grep "8888/?token" | head -n 1 | echo $(cut -d'=' -f2) | xargs | pbcopy
+echo "Token copied to clipboard"
+
+

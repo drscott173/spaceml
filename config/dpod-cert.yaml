@@ -1,0 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: dask-cert
+spec:
+  secretName: dask-cert
+  dnsNames:
+  - dask.scott.ai
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - dask.scott.ai
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

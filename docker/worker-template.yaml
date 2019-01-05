@@ -1,0 +1,27 @@
+metadata:
+spec:
+  restartPolicy: Never
+  containers:
+  - args:
+      - dask-worker
+      - --nthreads
+      - '2'
+      - --no-bokeh
+      - --memory-limit
+      - 6GB
+      - --death-timeout
+      - '60'
+    image: gcr.io/jsp-work/dask/demo
+    name: dask-worker
+    securityContext:
+      capabilities:
+        add: [SYS_ADMIN]
+      privileged: true
+    resources:
+      limits:
+        cpu: "1.75"
+        memory: 6G
+        nvidia.com/gpu: 1 # requesting 1 GPU
+      requests:
+        cpu: "1.75"
+        memory: 6G
