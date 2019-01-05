@@ -11,8 +11,8 @@ above). We tested the use of machine learning and cloud
 to find exoplanets, predict solar flares, and model atmospheres
 that could be produced by extraterrestial life.   
 
-Recently NASA has been asking
-for proposals to host a petabyte of space-related data, 
+Recently NASA has been [asking for proposals](https://open.nasa.gov/open-gov/)
+to host a petabyte of space-related data, 
 enabling citizens across the world
 to conduct their own experiments.  The ESA has joined as well, now looking
 for methods to use space data to improve life on earth.  For example, we could
@@ -41,11 +41,6 @@ training are accelerated by Dask.
 Models are deployed into RESTful endpoints with 
 [seldon](https://github.com/SeldonIO/seldon-core) for integration
 with other systems.
-
-We are planning on a freely hosted version of SpaceML much
-like we do with Google Colaboratory today.  Deeper explorations of data can start 
-individual projects by replicating the SpaceML
-stack on private clusters.  
 
 We hope you find this stack useful in your own AI endeavors.
 
