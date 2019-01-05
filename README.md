@@ -14,23 +14,26 @@ electromagnetic signature, which could be a sign of pending earthquakes
 as magma shifts beneath the surface.
 
 Our initial version of SpaceML is a Jupyter Lab environment in the cloud, 
-powered by a GPU cluster with shared to public space data
-Data are manipulated, explored and visualized 
-within a Python environment of notebooks, terminal shells,
-visualizers and more.
+powered by a GPU-accelerated Kubernetes cluster.  Data are hosted
+and shared on GCS and BigQuery.  Data are manipulated, explored and visualized 
+within a Python environment of notebooks, terminal shells, and other Jupyter Lab
+plugins.
 
 The stack is entirely open source. Dask expands the in-memory models popularized
 by numpy and pandas to handle large data sets that exceed limits of a single
 machine (e.g. arrays with 100M rows).  Predictive models are built and trained using
-scikit-learn, tensorflow, and pytorch.  These too are accelerated by
-dask. Models are deployed into RESTful endpoints with seldon for integration
+tensorflow, scikit-learn, and pytorch.  Hypterparamter optimization and distributed
+training are accelerated by Dask. 
+Models are deployed into RESTful endpoints with seldon for integration
 with other systems.
 
-We hope to make this platform free to use, much
-like we provide Colab.  Deeper explorations of data can start 
+We plan to make this platform free to use, much
+like Google Colaboratory.  Deeper explorations of data can start 
 individual projects by replicating the SpaceML
-stack on private clusters.  We also hope you find this stack
-useful in your own data science and AI endeavours.
+stack on private clusters.  
+
+We hope you find this stack useful in your own AI endeavors.
 
 _@scottpenberthy, January 2019_
+
 
