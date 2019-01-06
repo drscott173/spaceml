@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# restart our pod, the services
+# the expose each port, and then
+# our ingress controller.
+kubectl create -f dpod.yaml
+kubectl create -f dpod-ingress.yaml
