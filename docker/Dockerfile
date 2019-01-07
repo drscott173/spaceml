@@ -157,6 +157,43 @@ RUN curl -L https://github.com/openshift/source-to-image/releases/download/v1.1.
 RUN pip install seldon-core
 
 ##
+#### Cap it all off with tensorflow-gpu updates
+##
+RUN pip install tensorflow-gpu
+
+##
+### Add GCP support in our notebok
+##
+ENV CLOUD_SDK_REPO="cloud-sdk-xenial"
+RUN echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+    apt-get update -y && apt-get install -y google-cloud-sdk
+RUN pip install \
+        google-api-python-client \
+	google-cloud-storage \
+	google-cloud-bigquery \
+	google-cloud-vision \
+	google-cloud-speech \
+	google-cloud-language \
+	google-cloud-pubsub \
+	oauth2client \
+	httplib2
+
+##
+#### Add Kaggle support
+##
+RUN apt-get install -y wget && \
+    pip install kaggle --upgrade && \
+    mkdir ~/.kaggle
+COPY spaceml.json /.kaggle/kaggle.json
+RUN chmod 600 /.kaggle/kaggle.json
+
+##
+## add our demo notebooks
+##
+COPY ../notebooks/* /notebooks/
+
+##
 ####
 ##
 
@@ -182,7 +219,7 @@ RUN echo \
 # Startup our jupyterlab inside the virtual environment \n\
 # we created earlier. \n\
 . /opt/conda/etc/profile.d/conda.sh \n\
-coda activate base \n\
+conda activate base \n\
 \n\
 \n\
 # Download the latest files \n\

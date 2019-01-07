@@ -1,6 +1,6 @@
 distributed:
   dashboard:
-    link: "/info/status"
+    link: "info/"
 
   admin:
     tick:
