@@ -191,7 +191,12 @@ RUN chmod 600 /.kaggle/kaggle.json
 ##
 ## add our demo notebooks
 ##
-COPY ../notebooks/* /notebooks/
+COPY demo/3_mnist_from_scratch.ipynb       /notebooks/0_mnist_cpu.ipynb
+COPY demo/3_mnist_from_scratch_gpu.ipynb   /notebooks/1_mnist_gpu.ipynb
+COPY demo/fraud_detection.ipynb            /notebooks/2_fraud_detection.ipynb
+COPY demo/yelp.ipynb                       /notebooks/3_sentiment_analysis.ipynb
+COPY demo/demandforecast.ipynb             /notebooks/4_demand_forecast.ipynb
+COPY demo/ga_analysis.ipynb                /notebooks/5_ga_analysis.ipynb
 
 ##
 ####
